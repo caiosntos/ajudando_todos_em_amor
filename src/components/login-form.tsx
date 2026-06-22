@@ -53,7 +53,7 @@ export function LoginForm() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="luana@ajudandotodos.org"
+            placeholder="E-mail"
             className="w-full border-[1.5px] border-border-input rounded-xl py-3.5 px-4 text-[15px] font-hanken bg-input-bg text-ink outline-none mb-4"
             required
           />
