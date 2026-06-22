@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Heart } from 'lucide-react'
+import Link from 'next/link'
+import {ArrowLeft, Home } from 'lucide-react'
 
 export function LoginForm() {
   const router = useRouter()
@@ -36,9 +38,15 @@ export function LoginForm() {
   }
 
   return (
+    
     <div className="min-h-screen bg-cream font-hanken text-ink flex items-center justify-center px-4">
-      <div className="bg-cream border border-border-line rounded-[4px] shadow-card px-10 py-12 w-full max-w-[412px] flex flex-col justify-center min-h-[520px]">
-        {/* Logo */}
+      <div className="relative bg-cream border border-border-line rounded-[4px] shadow-card px-10 py-12 w-full max-w-[412px] flex flex-col justify-center min-h-[520px]">
+        {<Link
+          href="/"
+          className="absolute top-6 left-6 text-sm text-ink-muted flex items-center gap-1.5">
+          <Home size={16} />
+          Voltar ao início
+        </Link>}
         <div className="text-center mb-7">
           <div className="font-spectral font-bold text-[22px] flex items-center justify-center gap-2 mb-1.5">
             <Heart size={20} fill="#E05A50" className="text-coral" />
@@ -46,7 +54,7 @@ export function LoginForm() {
           </div>
           <div className="text-sm text-ink-muted">Área da equipe</div>
         </div>
-
+        
         <form onSubmit={handleSubmit}>
           <label className="block font-semibold text-[13.5px] mb-2">E-mail</label>
           <input

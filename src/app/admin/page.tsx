@@ -76,7 +76,6 @@ export default async function AdminPage({ searchParams }: Props) {
         <div className="flex items-center gap-7">
           <div className="font-spectral font-bold text-[18px] flex items-center gap-2">
             <Heart size={17} fill="#E05A50" className="text-coral" />
-            Painel
           </div>
           <nav className="flex gap-5">
             {tabLink('doacoes', 'Doações')}
