@@ -3,11 +3,13 @@ import { redirect } from 'next/navigation'
 import { Heart } from 'lucide-react'
 import { getSession } from '@/lib/auth'
 import { listDonations, getReportSummary, type Donation, type DonationStatus } from '@/lib/donations'
+import { listCarouselImages } from '@/lib/carousel'
 import { AdminFilters } from '@/components/admin-filters'
 import { DonationActions } from '@/components/donation-actions'
 import { DonationDetailButton } from '@/components/donation-detail-button'
 import { UserMenu } from '@/components/user-menu'
 import { ExportButtons } from '@/components/export-buttons'
+import { CarouselManager } from '@/components/CarouselManager'
 
 interface Props {
   searchParams: Promise<{ status?: string; from?: string; to?: string; tab?: string }>
@@ -42,19 +44,20 @@ export default async function AdminPage({ searchParams }: Props) {
   if (!session) redirect('/login')
 
   const sp = await searchParams
-  const tab = sp.tab === 'relatorios' ? 'relatorios' : 'doacoes'
+  const tab = sp.tab === 'relatorios' ? 'relatorios' : sp.tab === 'carrossel' ? 'carrossel' : 'doacoes'
   const status = sp.status as DonationStatus | undefined
   const from = sp.from
   const to = sp.to
 
-  const [donations, summary] = await Promise.all([
+  const [donations, summary, carouselImages] = await Promise.all([
     listDonations({ status, from, to }),
     getReportSummary(),
+    listCarouselImages(),
   ])
 
   const tabLink = (t: string, label: string) => {
     const active = tab === t
-    const href = t === 'doacoes' ? '/admin' : '/admin?tab=relatorios'
+    const href = t === 'doacoes' ? '/admin' : `/admin?tab=${t}`
     return (
       <Link
         href={href}
@@ -80,6 +83,7 @@ export default async function AdminPage({ searchParams }: Props) {
           <nav className="flex gap-5">
             {tabLink('doacoes', 'Doações')}
             {tabLink('relatorios', 'Relatórios')}
+            {tabLink('carrossel', 'Carrossel')}
           </nav>
         </div>
         <UserMenu email={String(session.email ?? 'admin')} />
@@ -163,6 +167,17 @@ export default async function AdminPage({ searchParams }: Props) {
                 )
               })}
             </div>
+          </>
+        )}
+
+        {/* ─── TAB: Carrossel ─── */}
+        {tab === 'carrossel' && (
+          <>
+            <h2 className="font-spectral font-bold text-[28px] mb-1">Carrossel da página inicial</h2>
+            <p className="text-sm text-ink-muted mb-6">
+              As imagens aparecem no carrossel da página principal. Adicione ou remova fotos aqui.
+            </p>
+            <CarouselManager initialImages={carouselImages} />
           </>
         )}
 

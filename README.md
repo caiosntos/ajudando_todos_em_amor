@@ -113,6 +113,36 @@ Acesse: http://localhost:3000
 
 ---
 
+## 8. Acessar de outro computador (ngrok)
+
+O ngrok cria um túnel público para o servidor local, permitindo acessar o projeto de qualquer dispositivo na internet.
+
+### Pré-requisito (uma única vez)
+
+1. Crie uma conta gratuita em [ngrok.com](https://ngrok.com) e copie seu authtoken.
+2. Instale o ngrok:
+   ```bash
+   npm install -g ngrok
+   ```
+3. Autentique o ngrok na sua máquina:
+   ```bash
+   ngrok config add-authtoken SEU_TOKEN_AQUI
+   ```
+
+### Usar o túnel
+
+Com o projeto já rodando (`npm run dev`), abra um **segundo terminal** e execute:
+
+```bash
+npm run tunnel
+```
+
+O ngrok exibirá uma URL pública como `https://abc123.ngrok-free.app`. Cole essa URL em qualquer dispositivo para acessar o projeto.
+
+> **Atenção:** A URL muda toda vez que o túnel é reiniciado (plano gratuito). Para uma URL fixa, assine um plano pago no ngrok.
+
+---
+
 ## Rodando em produção com Docker
 
 Sobe o banco **e** a aplicação juntos:
@@ -148,6 +178,7 @@ Acesse: http://localhost:3000
 | `npm run migrate:up` | Aplica migrations pendentes |
 | `npm run migrate:down` | Reverte a última migration |
 | `npm run seed:admin` | Cria/atualiza o usuário admin |
+| `npm run tunnel` | Abre túnel ngrok para acesso externo |
 
 ---
 

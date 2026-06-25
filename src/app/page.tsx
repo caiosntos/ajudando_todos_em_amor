@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { Heart, ArrowRight, Menu, MessageCircle, Copy, Instagram } from 'lucide-react'
-
-const STRIPE_BG =
-  'repeating-linear-gradient(45deg,#F1E7DF,#F1E7DF 11px,#ECE0D6 11px,#ECE0D6 22px)'
+import { HeroCarousel } from '@/components/HeroCarousel'
+import { listCarouselImages } from '@/lib/carousel'
 
 const needs = [
   {
@@ -29,7 +28,9 @@ const stats = [
   { value: '+∞', label: 'famílias recomeçando' },
 ]
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const carouselImages = await listCarouselImages()
+
   return (
     <div className="min-h-screen bg-cream font-hanken text-ink">
       {/* Nav */}
@@ -88,14 +89,7 @@ export default function LandingPage() {
             </a>
           </div>
         </div>
-        <div
-          className="flex-1 h-[340px] rounded-[18px] flex items-end p-[18px] w-full md:w-auto"
-          style={{ background: STRIPE_BG }}
-        >
-          <span className="font-mono text-[12px] text-[#A2968B] bg-white/75 px-2.5 py-1.5 rounded-md">
-            FOTO — Luana entregando doações
-          </span>
-        </div>
+        <HeroCarousel images={carouselImages} />
       </section>
 
       {/* Story + Stats */}
@@ -211,17 +205,12 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pb-12">
           {needs.map((n) => (
             <div key={n.title} className="bg-white border border-border-line rounded-card overflow-hidden">
-              <div
-                className="h-[120px] relative"
-                style={{ background: STRIPE_BG }}
-              >
+              <div className="p-5">
                 {n.badge && (
-                  <span className={`absolute top-3 left-3 text-[11.5px] font-bold tracking-[.04em] px-3 py-[5px] rounded-pill ${n.badge.style}`}>
+                  <span className={`inline-block text-[11.5px] font-bold tracking-[.04em] px-3 py-[5px] rounded-pill mb-3 ${n.badge.style}`}>
                     {n.badge.label}
                   </span>
                 )}
-              </div>
-              <div className="p-5">
                 <h4 className="font-spectral font-semibold text-[19px] mb-1.5">{n.title}</h4>
                 <p className="text-sm leading-[1.6] text-[#6E645B] mb-3.5">{n.desc}</p>
                 <Link

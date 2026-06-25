@@ -9,7 +9,8 @@
     "migrate": "dotenv -e .env.local -- node-pg-migrate -m migrations",
     "migrate:up": "dotenv -e .env.local -- node-pg-migrate up -m migrations",
     "migrate:down": "dotenv -e .env.local -- node-pg-migrate down -m migrations",
-    "seed:admin": "dotenv -e .env.local -- tsx scripts/seed-admin.ts"
+    "seed:admin": "dotenv -e .env.local -- tsx scripts/seed-admin.ts",
+    "tunnel": "npx ngrok start ajudando-todos --config ngrok.yml"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

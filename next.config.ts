@@ -22,6 +22,11 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  allowedDevOrigins: [
+    '*.ngrok-free.app',
+    '*.ngrok.io',
+    '*.ngrok-stable.app',
+  ],
   async headers() {
     return [
       {

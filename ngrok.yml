@@ -1,0 +1,7 @@
+version: "3"
+agent:
+  authtoken: 3Fe7HfhaPEJTI2l50HawmmxLmG8_28EEA8SjeBjbhU2kfQypU
+tunnels:
+  ajudando-todos:
+    proto: http
+    addr: 3000
