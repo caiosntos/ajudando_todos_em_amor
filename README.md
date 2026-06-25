@@ -1,5 +1,6 @@
 # Ajudando Todos em Amor — Sistema de Doações
 
+
 Sistema web para gerenciamento de doações da ONG Ajudando Todos em Amor (Araquari/SC).
 
 ---
