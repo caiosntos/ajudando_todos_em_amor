@@ -6,12 +6,12 @@ Sistema web para gerenciamento de doações da ONG Ajudando Todos em Amor (Araqu
 
 ## Pré-requisitos
 
-| Ferramenta | Versão mínima | Download |
-|------------|--------------|---------|
-| Node.js | 20.x | https://nodejs.org |
-| npm | 10.x (vem com Node) | — |
-| PostgreSQL | 14+ **ou** Docker Desktop | https://www.docker.com |
-| Git | qualquer | https://git-scm.com |
+| Ferramenta | Versão mínima 
+|------------|--------------
+| Node.js | 20.x 
+| npm | 10.x (vem com Node)
+| PostgreSQL | 14+ **ou** Docker Desktop 
+| Git | -
 
 
 ---
@@ -35,8 +35,6 @@ JWT_SECRET=
 ADMIN_EMAIL=
 ADMIN_PASSWORD=
 ```
-
-> **JWT_SECRET**: use qualquer string longa. Em produção gere com `openssl rand -hex 32`.
 
 ---
 
