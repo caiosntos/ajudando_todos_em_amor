@@ -217,23 +217,3 @@ scripts/
 ```
 
 ---
-
-## Solução de problemas
-
-**`npm` não reconhecido no PowerShell**
-Feche e reabra o terminal após instalar o Node.js, ou use o caminho completo:
-```powershell
-& "C:\Program Files\nodejs\npm.cmd" run dev
-```
-
-**Erro de autenticação no banco (`SASL authentication failed`)**
-Verifique se `DATABASE_URL` no `.env.local` bate com usuário/senha do seu Postgres.
-
-**Porta 5432 já em uso**
-Outro Postgres está rodando. Pare-o ou mude a porta no `docker-compose.yml`.
-
-**Porta 3000 já em uso**
-```powershell
-# Windows — mata todos os processos Node
-Get-Process -Name "node" | Stop-Process -Force
-```
