@@ -138,17 +138,9 @@ O ngrok exibirá uma URL pública como `https://abc123.ngrok-free.app`. Cole ess
 
 ## Rodando em produção com Docker
 
-Sobe o banco **e** a aplicação juntos:
-
-```bash
-# Variáveis obrigatórias para produção
-export JWT_SECRET="string-longa-e-secreta"
-export POSTGRES_PASSWORD="senha-do-banco"
 
 docker compose up -d --build
 ```
-
-> No Windows PowerShell use `$env:JWT_SECRET = "..."` em vez de `export`.
 
 Depois rode as migrations e o seed dentro do container da aplicação:
 
