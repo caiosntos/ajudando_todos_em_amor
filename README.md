@@ -201,4 +201,5 @@ scripts/
   seed-admin.ts       # Seed do usuário admin
 ```
 
+
 ---
