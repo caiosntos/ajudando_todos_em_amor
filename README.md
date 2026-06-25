@@ -31,10 +31,10 @@ cd ajudando_todos_em_amor
 Crie o arquivo `.env.local` na raiz do projeto (nunca commitar):
 
 ```env
-DATABASE_URL=postgres://postgres:ajudando123@localhost:5432/ajudando_todos
-JWT_SECRET=troque-por-uma-string-longa-e-aleatoria-em-producao
-ADMIN_EMAIL=luana@ajudandotodos.org
-ADMIN_PASSWORD=SenhaForte2026!
+DATABASE_URL=
+JWT_SECRET=
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
 ```
 
 > **JWT_SECRET**: use qualquer string longa. Em produção gere com `openssl rand -hex 32`.
@@ -118,8 +118,6 @@ Acesse: http://localhost:3000
 O ngrok cria um túnel público para o servidor local, permitindo acessar o projeto de qualquer dispositivo na internet.
 
 ### Pré-requisito (uma única vez)
-
-1. Crie uma conta gratuita em [ngrok.com](https://ngrok.com) e copie seu authtoken.
 2. Instale o ngrok:
    ```bash
    npm install -g ngrok
@@ -138,8 +136,6 @@ npm run tunnel
 ```
 
 O ngrok exibirá uma URL pública como `https://abc123.ngrok-free.app`. Cole essa URL em qualquer dispositivo para acessar o projeto.
-
-> **Atenção:** A URL muda toda vez que o túnel é reiniciado (plano gratuito). Para uma URL fixa, assine um plano pago no ngrok.
 
 ---
 
