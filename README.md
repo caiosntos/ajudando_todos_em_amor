@@ -13,7 +13,6 @@ Sistema web para gerenciamento de doações da ONG Ajudando Todos em Amor (Araqu
 | PostgreSQL | 14+ **ou** Docker Desktop | https://www.docker.com |
 | Git | qualquer | https://git-scm.com |
 
-> **Windows**: após instalar o Node.js, feche e reabra o terminal para o `npm` entrar no PATH.
 
 ---
 
